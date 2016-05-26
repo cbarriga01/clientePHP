@@ -1,4 +1,5 @@
 <?php
+echo '<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">';
 /**
  * Created by PhpStorm.
  * User: Kal-El
@@ -59,16 +60,74 @@ $busquedaAvanzada="";
 
     if ( ($run != "") or ($nombre != "") or ($apellido != "") or ($mail != "") or ($telefono != "") or ($pais!= "")
         or ($region != "")or ($ciudad != "")or ($ciudad != "")) {
+
+        $run = strtolower($run);
+        $nombre = strtolower($nombre);
+        $apellido = strtolower($apellido);
+        $mail = strtolower($mail);
+        $telefono = strtolower($telefono);
+        $pais = strtolower($pais);
+        $region = strtolower($region);
+        $ciudad = strtolower($ciudad);
+        $direccion = strtolower($direccion);
+
         // $empresa= array('empresauid'=>1);
         $contacto=array('run'=>$run, 'nombre'=>$nombre,'apellido'=>$apellido,'mail'=>$mail,'telefono'=>$telefono,'pais'
         =>$pais,'region'=>$region,'ciudad'=>$ciudad,'direccion'=>$direccion);
-        echo json_encode($contacto);
+        //echo json_encode($contacto);
         $busquedaAvanzada=json_encode($contacto);
+      
+        $response=$cliente->busquedaAvanzada(array("busquedaAvanzada"=>$busquedaAvanzada));
+        $contacto2 = json_decode($response->busquedaAvanzadaReturn);
         ?>
-        <h1>Resultado Busqueda</h1>
-        <p>La busqueda  es: <?php print_r( $cliente->busquedaAvanzada(array("busquedaAvanzada"=>$busquedaAvanzada)));
-            ?></p><br/>
+        <h1>Búsqueda Avanzada de Contacto</h1>
+        <table class="table table-bordered table-hover table-responsive">
+            <tr class="success">
+                <th>Run</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Mail</th>
+                <th>Teléfono</th>
+                <th>Pais</th>
+                <th>región</th>
+                <th>Ciudad</th>
+                <th>Dirección</th>
+                <th>Imagen</th>
+            </tr>
+            <?php foreach($contacto2 as $obj) {
+                $run = $obj->run;
+                $nombre = $obj->nombre;
+                $apellido = $obj->apellido;
+                $mail = $obj->mail;
+                $telefono = $obj->telefono;
+                $pais = $obj->pais;
+                $region = $obj->region;
+                $ciudad = $obj->ciudad;
+                $direccion = $obj->direccion;
+                $imagen = $obj->imagen;
+                ?>
+                <tr>
 
+                    <td><?php echo $run ?></td>
+                    <td><?php echo $nombre ?></td>
+                    <td><?php echo $apellido ?></td>
+                    <td><?php echo $mail ?></td>
+                    <td><?php echo $telefono ?></td>
+                    <td><?php echo $pais ?></td>
+                    <td><?php echo $region ?></td>
+                    <td><?php echo $ciudad ?></td>
+                    <td><?php echo $direccion ?></td>
+                    <?php
+
+                        
+
+                        $imagen = '<td ><img src='. $imagen .' width="100px" class = "thumbnail"></td>';
+                        echo $imagen;
+                    ?>
+
+                </tr>
+            <?php } ?>
+        </table>
     <?php
 }
 ?>

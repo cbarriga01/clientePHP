@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"></link>
     <link href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet"></link>
 
@@ -9,15 +9,47 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
-    <script type="text/javascript" src="./js/validator.js"></script>
+
     <title>Búsqueda Simple</title>
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapse"
+                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+        </div>
+        
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="index.html">Home</a></li>
+                    <li role="presentation"><a href="busquedaSimple.html">Busqueda Simple</a></li>
+                    <li role="presentation"><a href="busquedaAvanzada.html">Busqueda Avanzada</a></li>
+                    
+                    <li role="presentation"><form action="Login" id="Login" method="get" class="form-horizontal mitad">
+                            <div class="form-group">
+                                <div class="col-lg-9 col-lg-offset-3">
+                                    <button type="submit" class="btn btn-primary navbar-btn">Logout</button>
+                                </div>
+                            </div>
+                        </form>
+                </ul>
+            </div>
+        
+    </div>
+    </nav> 
+
 
 <div class="jumbotron">
     <div class="container">
         <h3>Búsqueda Simple de Contacto</h3>
-        <form action="cliente_ws_ejemplo2.php" id="cliente_ws_ejemplo" name="cliente_ws_ejemplo" method="get"
+        <form action="cliente_ws_ejemplo2.php" id="cliente_ws_ejemplo2" name="cliente_ws_ejemplo2" method="get"
               class="form-horizontal mitad">
             <div class="form-group">
                 <label class="col-lg-3 control-label">Buscar</label>
