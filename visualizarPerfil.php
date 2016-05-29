@@ -30,7 +30,7 @@ $direccion = $_POST['direccion'];
 
 <table class="table">
     <tr>
-        <td><h1 id="titulo">Perfil de Contacto></h1></td>
+        <td><h1 id="titulo">Perfil de Contacto</h1></td>
     </tr>
 </table>
 
@@ -38,7 +38,7 @@ $direccion = $_POST['direccion'];
     <table class="table table-bordered table-hover table-responsive">
         <tr class="success">
             <td>Imagen: </td>
-            <td id="imgContainer"><img src=<?php echo $imagen?>  width="100px" class = "thumbnail"></td>
+            <td id="imgContainer"><img src=<?php echo $imagen?> width="100px" class = "thumbnail"></td>
         </tr>
         <tr>
             <td>Run: </td>

@@ -1,3 +1,8 @@
+<?php
+    session_start();
+        $status = $_SESSION["status"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +20,14 @@
 	
 	<div class="jumbotron">
     	<div class="container">
-
-          <form class="form-signin" role="form" action="login.php" id="login.php" method="GET">
+    	  <?php echo '<h3 class="alert alert-danger">'.$status.'</h3>';?> 
+          <form class="form-signin" role="form" action="login.php" id="login" method="POST">
             <h2 class="form-signin-heading">Ingrese sus datos</h2>
             <div class="form-group">
-            	<input type="text" class="form-control" name="usuario" placeholder="Nombre de usuario" required>
+            	<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de usuario" required>
             </div>
             <div class="form-group">
-            	<input type="password" class="form-control" name="password" placeholder="Password" required>
+            	<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             </div>
             <div class="form-group">
             	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
