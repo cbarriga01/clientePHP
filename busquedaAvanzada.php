@@ -2,11 +2,8 @@
 session_start();
     
     if( $_SESSION["session"] == "si"){
-        //header('Location: /clientePHP/index.php');
         $name = $_SESSION["username"];
     }else{
-        //$_SESSION["status"] = "Inicie sesión";
-        //$status = $_SESSION["status"];
         session_unset();
         session_destroy();
         header('Location: /clientePHP/formLogin.php');
